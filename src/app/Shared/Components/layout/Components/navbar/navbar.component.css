@@ -1,0 +1,11 @@
+.navbar {
+  min-height: 10vh;
+  width: 100vw;
+  background-color: rgb(148, 41, 148);
+}
+.navbar-brand {
+  color: white;
+}
+a {
+  color: white;
+}
