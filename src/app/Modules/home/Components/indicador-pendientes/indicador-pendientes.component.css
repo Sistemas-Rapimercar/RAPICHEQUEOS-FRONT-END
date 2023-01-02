@@ -1,0 +1,16 @@
+.container {
+  background-image: radial-gradient(
+    circle,
+    #ffffff,
+    #fbfbfb,
+    #f8f6f7,
+    #f5f1f2,
+    #f2eded
+  );
+  height: 40vh;
+  width: 90vw;
+  max-width: 800px;
+  border-radius: 30px;
+  padding: 10px;
+  overflow: scroll;
+}
