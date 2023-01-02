@@ -14,10 +14,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" routerLink="dashboard">Inicio</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">Pricing</a>
-        <a class="nav-link disabled">Disabled</a>
+        <a
+          class="nav-link"
+          routerLink="dashboard"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          >Inicio</a
+        >
+        <a
+          class="nav-link"
+          routerLink="chequeos/lista"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          >Lista de Chequeos</a
+        >
+        <a
+          class="nav-link"
+          routerLink="chequeos/chequeo"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          >Chequeo en Progreso</a
+        >
       </div>
     </div>
   </div>
