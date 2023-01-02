@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './Modules/Home/Pages/dashboard/dashboard.component';
-import { HomeComponent } from './Modules/Home/Pages/home/home.component';
+import { LoginComponent } from './Modules/auth/login/login.component';
+import { DashboardComponent } from './Modules/home/dashboard/dashboard.component';
+import { LayoutComponent } from './Shared/layout/Components/layout/layout.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent,
-    children: [{ path: 'f', component: DashboardComponent }],
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./Shared/layout/layout.module').then((m) => m.LayoutModule),
   },
 ];
 

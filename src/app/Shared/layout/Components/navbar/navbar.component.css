@@ -1,0 +1,14 @@
+.navbar {
+  background-color: blueviolet;
+  min-height: 10vh;
+}
+.navbar-brand {
+  color: white;
+}
+.nav-link {
+  color: white;
+}
+
+.navbar-toggler-icon {
+  color: white !important;
+}
