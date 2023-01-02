@@ -12,5 +12,9 @@
   max-width: 800px;
   border-radius: 30px;
   padding: 10px;
+  overflow: hidden;
+}
+.content {
   overflow: scroll;
+  height: 28vh;
 }

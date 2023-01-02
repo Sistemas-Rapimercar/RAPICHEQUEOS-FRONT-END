@@ -1,3 +1,13 @@
 <div class="card container row">
-  <div class="card-body">This is some text within a card body.</div>
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted">Chequeos pendientes</h6>
+    <div class="row content">
+      <ul class="col list-group">
+        <li class="list-group-item" *ngFor="let chequeo of chequeos">
+          {{ chequeo.familia.descripcion }} -
+          {{ chequeo.subFamilia.descripcion }}
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

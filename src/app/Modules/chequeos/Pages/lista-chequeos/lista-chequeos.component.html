@@ -1,1 +1,24 @@
-<p>lista-chequeos works!</p>
+<div class="container-main">
+  <br />
+  <div class="card" *ngFor="let chequeo of chequeos">
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">chequeo #{{ chequeo.id }}</h6>
+      <span class="badge text-bg-primary">{{
+        chequeo.departamento.descripcion
+      }}</span>
+      &nbsp;
+      <span class="badge text-bg-primary">{{
+        chequeo.seccion.descripcion
+      }}</span>
+      &nbsp;
+      <span class="badge text-bg-primary">{{
+        chequeo.familia.descripcion
+      }}</span>
+      &nbsp;
+      <span class="badge text-bg-primary">{{
+        chequeo.subFamilia.descripcion
+      }}</span>
+    </div>
+  </div>
+  <br />
+</div>
