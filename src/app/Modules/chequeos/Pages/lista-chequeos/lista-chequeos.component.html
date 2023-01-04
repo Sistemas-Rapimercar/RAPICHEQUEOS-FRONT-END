@@ -3,22 +3,45 @@
   <div class="card" *ngFor="let chequeo of chequeos">
     <div class="card-body">
       <h6 class="card-subtitle mb-2 text-muted">chequeo #{{ chequeo.id }}</h6>
-      <span class="badge text-bg-primary">{{
-        chequeo.departamento.descripcion
-      }}</span>
-      &nbsp;
-      <span class="badge text-bg-primary">{{
-        chequeo.seccion.descripcion
-      }}</span>
-      &nbsp;
-      <span class="badge text-bg-primary">{{
-        chequeo.familia.descripcion
-      }}</span>
-      &nbsp;
-      <span class="badge text-bg-primary">{{
-        chequeo.subFamilia.descripcion
-      }}</span>
+
+      <p class="containerTags">
+        <span class="badge categori rounded-pill"
+          >Categori:
+          {{
+            chequeo.departamento.id +
+              " " +
+              chequeo.seccion.id +
+              " " +
+              chequeo.familia.id +
+              " " +
+              chequeo.subFamilia.id
+          }}</span
+        >
+
+        <span class="badge rounded-pill">{{
+          toTitleCase(chequeo.departamento.descripcion)
+        }}</span>
+
+        <span class="badge rounded-pill">{{
+          toTitleCase(chequeo.seccion.descripcion)
+        }}</span>
+
+        <span class="badge rounded-pill">{{
+          toTitleCase(chequeo.familia.descripcion)
+        }}</span>
+
+        <span class="badge rounded-pill">{{
+          toTitleCase(chequeo.subFamilia.descripcion)
+        }}</span>
+      </p>
+
+      <div class="row">
+        <div class="col">
+          <a href="#" class="card-link">Cargar chequeo</a>
+        </div>
+      </div>
     </div>
   </div>
+
   <br />
 </div>

@@ -6,7 +6,11 @@ import { ChequeoRoutingModule } from './chequeo-routing.module';
 import { LayoutChequeosComponent } from './Components/layout-chequeos/layout-chequeos.component';
 
 @NgModule({
-  declarations: [ListaChequeosComponent, ChequeoComponent, LayoutChequeosComponent],
+  declarations: [
+    ListaChequeosComponent,
+    ChequeoComponent,
+    LayoutChequeosComponent,
+  ],
   imports: [CommonModule, ChequeoRoutingModule],
 })
 export class ChequeosModule {}

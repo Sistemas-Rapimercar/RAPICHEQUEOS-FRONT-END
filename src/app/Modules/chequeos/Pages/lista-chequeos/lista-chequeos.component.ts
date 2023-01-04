@@ -11,10 +11,14 @@ export class ListaChequeosComponent {
   constructor(private servicioChequeo: ChequeoService) {
     this.servicioChequeo
       .getChequeosPendientes()
-      .subscribe((data: Chequeo[]) => {
-        this.chequeos = data;
+      .subscribe((chequeos: Chequeo[]) => {
+        this.chequeos = chequeos;
       });
   }
 
   public chequeos: Chequeo[] = [];
+
+  public toTitleCase(str: string): string {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  }
 }

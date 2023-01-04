@@ -3,5 +3,25 @@
 }
 .card {
   width: 80vw;
-  margin-bottom: 1vh;
+  margin-bottom: 3vh;
+}
+.badge {
+  background-color: rgb(226, 226, 226);
+  color: black;
+}
+.categori {
+  background-color: blueviolet;
+  color: white;
+}
+.containerTags {
+  padding: 5px;
+  border-width: 1px;
+  border-color: rgb(218, 218, 218);
+  border-style: double;
+  border-left: none;
+  border-right: none;
+}
+.card-link {
+  text-decoration: none;
+  color: blueviolet;
 }
