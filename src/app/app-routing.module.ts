@@ -6,10 +6,6 @@ import { LayoutComponent } from './Shared/layout/Components/layout/layout.compon
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
     path: '',
     loadChildren: () =>
       import('./Shared/layout/layout.module').then((m) => m.LayoutModule),
@@ -17,7 +13,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

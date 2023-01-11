@@ -9,16 +9,18 @@ import { ChequeoService } from '../../Services/chequeo.service';
 })
 export class ListaChequeosComponent {
   constructor(private servicioChequeo: ChequeoService) {
-    this.servicioChequeo
-      .getChequeosPendientes()
-      .subscribe((chequeos: Chequeo[]) => {
-        this.chequeos = chequeos;
-      });
+    this.chequeos = this.servicioChequeo.getChequeosPendientesInStorage();
   }
 
   public chequeos: Chequeo[] = [];
 
   public toTitleCase(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  }
+
+  public getChequeosInServer(): void {
+    this.servicioChequeo.getChequeosPendientesInServer().subscribe((data) => {
+      this.chequeos = data;
+    });
   }
 }
