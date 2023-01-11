@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Articulo } from 'src/app/core/Models/Articulo';
 import { Chequeo } from 'src/app/core/Models/Chequeo';
 import { ChequeoService } from '../../Services/chequeo.service';
 
@@ -13,6 +14,7 @@ export class ListaChequeosComponent {
   }
 
   public chequeos: Chequeo[] = [];
+  public articulos: Articulo[] = [];
 
   public toTitleCase(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
@@ -22,5 +24,25 @@ export class ListaChequeosComponent {
     this.servicioChequeo.getChequeosPendientesInServer().subscribe((data) => {
       this.chequeos = data;
     });
+  }
+  public cargarArticulosChequeo(
+    departamento: number,
+    seccion: number,
+    familia: number,
+    subFamilia: number,
+    idChequeo: number
+  ): void {
+    this.servicioChequeo
+      .getArticulosChequeo(departamento, seccion, familia, subFamilia)
+      .subscribe((data) => {
+        this.servicioChequeo.setArticulosChequeoInStorage(data.data, idChequeo);
+      });
+  }
+
+  public articulosChequeoExiste(idChequeo: number): boolean {
+    if (sessionStorage.getItem('articulos_chequeo:' + idChequeo)) {
+      return true;
+    }
+    return false;
   }
 }

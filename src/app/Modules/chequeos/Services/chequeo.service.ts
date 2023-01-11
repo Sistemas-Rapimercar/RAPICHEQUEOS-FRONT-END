@@ -4,6 +4,7 @@ import { Chequeo } from 'src/app/core/Models/Chequeo';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Articulo } from 'src/app/core/Models/Articulo';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,7 +14,7 @@ export class ChequeoService {
   }
   private url: string = environment.urlRestApi;
   private chequeos: Chequeo[] = [];
-  @Output() obs = new EventEmitter<any>();
+  private articulos: Articulo[] = [];
 
   public getChequeosPendientesInServer(): Observable<any> {
     return this.httpClient.get<any>(this.url + '/chequeos').pipe(
@@ -50,5 +51,43 @@ export class ChequeoService {
       i++;
     });
     this.getChequeosPendientesInStorage();
+  }
+
+  public setArticulosChequeoInStorage(
+    articulos: Articulo[],
+    idChequeo: number
+  ): void {
+    let articulosString: string = '';
+    for (let i = 0; i < articulos.length - 1; i++) {
+      articulosString += JSON.stringify(articulos[i]);
+      articulosString += '-';
+    }
+    articulosString += JSON.stringify(articulos[articulos.length - 1]);
+    sessionStorage.setItem('articulos_chequeo:' + idChequeo, articulosString);
+  }
+
+  public getArticulosChequeo(
+    departamento: number,
+    seccion: number,
+    familia: number,
+    subFamilia: number
+  ): Observable<any> {
+    return this.httpClient
+      .get<any>(
+        this.url +
+          '/chequeo/' +
+          departamento +
+          '/' +
+          seccion +
+          '/' +
+          familia +
+          '/' +
+          subFamilia
+      )
+      .pipe(
+        map((response) => {
+          return response;
+        })
+      );
   }
 }
