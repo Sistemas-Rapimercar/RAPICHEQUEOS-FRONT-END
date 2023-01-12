@@ -45,15 +45,8 @@
           <a
             *ngIf="articulosChequeoExiste(chequeo.id)"
             class="card-link green"
-            (click)="
-              cargarArticulosChequeo(
-                chequeo.departamento.id,
-                chequeo.seccion.id,
-                chequeo.familia.id,
-                chequeo.subFamilia.id,
-                chequeo.id
-              )
-            "
+            routerLink="/chequeos/chequeo"
+            (click)="setChequeoEnCola(chequeo.id)"
             >Realizar chequeo</a
           >
           <a

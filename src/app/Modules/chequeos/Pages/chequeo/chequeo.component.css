@@ -1,0 +1,22 @@
+.container {
+  height: 90vh;
+}
+.lista {
+  height: 70vh;
+  width: 90vw;
+  overflow: scroll;
+}
+.container-formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+}
+.formulario,
+input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  text-align: center;
+}

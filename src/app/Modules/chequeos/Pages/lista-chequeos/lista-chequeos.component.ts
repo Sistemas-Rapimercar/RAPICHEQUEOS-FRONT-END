@@ -45,4 +45,8 @@ export class ListaChequeosComponent {
     }
     return false;
   }
+
+  public setChequeoEnCola(id: number): void {
+    this.servicioChequeo.setChequeoEnCola(id);
+  }
 }

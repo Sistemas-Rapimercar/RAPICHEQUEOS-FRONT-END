@@ -1,8 +1,33 @@
-<div>
-  <div class="row">
-    <div class="col">Input para cod barras</div>
+<div class="container">
+  <div class="row container-formulario">
+    <div class="col formulario">
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Codigo de barras</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+      </form>
+    </div>
   </div>
-  <div>
+  <div class="row lista">
+    <div class="list-group col">
+      <a
+        *ngFor="let articulo of articulos"
+        href="#"
+        class="list-group-item list-group-item-action"
+        >{{ articulo.descripcion }}</a
+      >
+    </div>
+  </div>
+
+  <!-- <div class="row">
     <div class="col">Aqui va ir la lista de articulos</div>
-  </div>
+  </div> -->
 </div>

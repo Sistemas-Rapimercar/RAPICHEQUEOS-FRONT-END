@@ -14,7 +14,35 @@ export class ChequeoService {
   }
   private url: string = environment.urlRestApi;
   private chequeos: Chequeo[] = [];
-  private articulos: Articulo[] = [];
+  //private articulos: Articulo[] = [];
+  //private chequeoEnCola: Articulo[] = [];
+
+  public setChequeoEnCola(idChequeo: number): void {
+    sessionStorage.setItem('chequeo_cola', idChequeo.toString());
+    /* let rawArray = sessionStorage
+      .getItem('articulos_chequeo:' + idChequeo)!
+      .split('_-_');
+
+    let articulosArray: Articulo[] = [];
+    for (let i = 0; i < rawArray!.length; i++) {
+      articulosArray.push(JSON.parse(rawArray[i]));
+    } */
+
+    //this.chequeoEnCola = articulosArray;
+  }
+
+  public getChequeoEnCola(): Articulo[] {
+    let idChequeo = sessionStorage.getItem('chequeo_cola');
+    let rawArray = sessionStorage
+      .getItem('articulos_chequeo:' + idChequeo)!
+      .split('_-_');
+
+    let articulosArray: Articulo[] = [];
+    for (let i = 0; i < rawArray!.length; i++) {
+      articulosArray.push(JSON.parse(rawArray[i]));
+    }
+    return articulosArray;
+  }
 
   public getChequeosPendientesInServer(): Observable<any> {
     return this.httpClient.get<any>(this.url + '/chequeos').pipe(
@@ -60,7 +88,7 @@ export class ChequeoService {
     let articulosString: string = '';
     for (let i = 0; i < articulos.length - 1; i++) {
       articulosString += JSON.stringify(articulos[i]);
-      articulosString += '-';
+      articulosString += '_-_';
     }
     articulosString += JSON.stringify(articulos[articulos.length - 1]);
     sessionStorage.setItem('articulos_chequeo:' + idChequeo, articulosString);
