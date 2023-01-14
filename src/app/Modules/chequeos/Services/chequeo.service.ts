@@ -9,113 +9,22 @@ import { Articulo } from 'src/app/core/Models/Articulo';
   providedIn: 'root',
 })
 export class ChequeoService {
-  constructor(private httpClient: HttpClient) {
-    //sessionStorage.setItem('cantidad_chequeos', '0');
-  }
+  constructor(private httpClient: HttpClient) {}
   private url: string = environment.urlRestApi;
+
   private chequeos: Chequeo[] = [];
-  //private articulos: Articulo[] = [];
-  //private chequeoEnCola: Articulo[] = [];
 
-  public setChequeoEnCola(idChequeo: number): void {
-    sessionStorage.setItem('chequeo_cola', idChequeo.toString());
-    /* let rawArray = sessionStorage
-      .getItem('articulos_chequeo:' + idChequeo)!
-      .split('_-_');
-
-    let articulosArray: Articulo[] = [];
-    for (let i = 0; i < rawArray!.length; i++) {
-      articulosArray.push(JSON.parse(rawArray[i]));
-    } */
-
-    //this.chequeoEnCola = articulosArray;
-  }
-
-  public getChequeoEnCola(): Articulo[] {
-    let idChequeo = sessionStorage.getItem('chequeo_cola');
-    let rawArray = sessionStorage
-      .getItem('articulos_chequeo:' + idChequeo)!
-      .split('_-_');
-
-    let articulosArray: Articulo[] = [];
-    for (let i = 0; i < rawArray!.length; i++) {
-      articulosArray.push(JSON.parse(rawArray[i]));
-    }
-    return articulosArray;
-  }
-
-  public getChequeosPendientesInServer(): Observable<any> {
+  public getChequeosPendientes(): Observable<any> {
     return this.httpClient.get<any>(this.url + '/chequeos').pipe(
       map((response) => {
-        this.chequeos = response.data;
-        this.setChequeosPendientesInStorage();
-
         return response.data;
+        //this.chequeos = response.data;
       })
     );
   }
 
-  public getChequeosPendientesInStorage(): Chequeo[] {
-    this.chequeos = [];
-    for (
-      let i = 0;
-      i < parseInt(sessionStorage.getItem('cantidad_chequeos')!);
-      i++
-    ) {
-      this.chequeos.push(JSON.parse(sessionStorage.getItem('chequeo:' + i)!));
-    }
-
+  public getChequeos(): Chequeo[] {
+    this.getChequeosPendientes().subscribe();
     return this.chequeos;
-  }
-
-  public setChequeosPendientesInStorage(): void {
-    sessionStorage.setItem(
-      'cantidad_chequeos',
-      this.chequeos.length.toString()
-    );
-    let i = 0;
-    this.chequeos.forEach((item) => {
-      sessionStorage.setItem('chequeo:' + i, JSON.stringify(item));
-      i++;
-    });
-    this.getChequeosPendientesInStorage();
-  }
-
-  public setArticulosChequeoInStorage(
-    articulos: Articulo[],
-    idChequeo: number
-  ): void {
-    let articulosString: string = '';
-    for (let i = 0; i < articulos.length - 1; i++) {
-      articulosString += JSON.stringify(articulos[i]);
-      articulosString += '_-_';
-    }
-    articulosString += JSON.stringify(articulos[articulos.length - 1]);
-    sessionStorage.setItem('articulos_chequeo:' + idChequeo, articulosString);
-  }
-
-  public getArticulosChequeo(
-    departamento: number,
-    seccion: number,
-    familia: number,
-    subFamilia: number
-  ): Observable<any> {
-    return this.httpClient
-      .get<any>(
-        this.url +
-          '/chequeo/' +
-          departamento +
-          '/' +
-          seccion +
-          '/' +
-          familia +
-          '/' +
-          subFamilia
-      )
-      .pipe(
-        map((response) => {
-          return response;
-        })
-      );
   }
 }

@@ -9,7 +9,15 @@ import { ChequeoService } from '../../Services/chequeo.service';
   styleUrls: ['./lista-chequeos.component.css'],
 })
 export class ListaChequeosComponent {
-  constructor(private servicioChequeo: ChequeoService) {
+  constructor(private servicioChequeo: ChequeoService) {}
+  chequeos: Chequeo[] = [];
+  /* get chequeos(): Chequeo[] {
+    console.log(this.servicioChequeo.getChequeos());
+
+    return this.servicioChequeo.getChequeos();
+  } */
+
+  /* constructor(private servicioChequeo: ChequeoService) {
     this.chequeos = this.servicioChequeo.getChequeosPendientesInStorage();
   }
 
@@ -48,5 +56,5 @@ export class ListaChequeosComponent {
 
   public setChequeoEnCola(id: number): void {
     this.servicioChequeo.setChequeoEnCola(id);
-  }
+  } */
 }

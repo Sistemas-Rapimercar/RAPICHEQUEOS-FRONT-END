@@ -9,11 +9,15 @@ import { ChequeoService } from 'src/app/Modules/chequeos/Services/chequeo.servic
 })
 export class IndicadorPendientesComponent {
   constructor(private chequeoServicio: ChequeoService) {
-    /* this.chequeoServicio
-      .getChequeosPendientes()
-      .subscribe((data: Chequeo[]) => {
-        this.chequeos = data;
-      }); */
+    this.chequeoServicio.getChequeosPendientes().subscribe((data) => {
+      this.chequeos = data;
+    });
   }
-  public chequeos: Chequeo[] = [];
+  /* get chequeos(): Chequeo[] {
+    //console.log(this.chequeoServicio.getChequeos());
+
+    return this.chequeoServicio.getChequeos();
+  } */
+
+  chequeos: Chequeo[];
 }

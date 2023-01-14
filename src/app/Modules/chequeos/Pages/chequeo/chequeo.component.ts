@@ -8,8 +8,8 @@ import { ChequeoService } from '../../Services/chequeo.service';
   styleUrls: ['./chequeo.component.css'],
 })
 export class ChequeoComponent {
-  constructor(private servicioChequeo: ChequeoService) {
+  /* constructor(private servicioChequeo: ChequeoService) {
     this.articulos = this.servicioChequeo.getChequeoEnCola();
   }
-  public articulos: Articulo[] = [];
+  public articulos: Articulo[] = []; */
 }

@@ -1,8 +1,8 @@
 <div class="container-main">
   <br />
-  <button class="btn btn-primary" (click)="getChequeosInServer()">
+  <!--  <button class="btn btn-primary" (click)="getChequeosInServer()">
     Actualizar chequeos
-  </button>
+  </button> -->
   <hr />
 
   <div class="card" *ngFor="let chequeo of chequeos">
@@ -24,45 +24,28 @@
         >
 
         <span class="badge rounded-pill">{{
-          toTitleCase(chequeo.departamento.descripcion)
+          chequeo.departamento.descripcion | titlecase
         }}</span>
 
         <span class="badge rounded-pill">{{
-          toTitleCase(chequeo.seccion.descripcion)
+          chequeo.seccion.descripcion | titlecase
         }}</span>
 
         <span class="badge rounded-pill">{{
-          toTitleCase(chequeo.familia.descripcion)
+          chequeo.familia.descripcion | titlecase
         }}</span>
 
         <span class="badge rounded-pill">{{
-          toTitleCase(chequeo.subFamilia.descripcion)
+          chequeo.subFamilia.descripcion | titlecase
         }}</span>
       </p>
 
       <div class="row">
         <div class="col">
-          <a
-            *ngIf="articulosChequeoExiste(chequeo.id)"
-            class="card-link green"
-            routerLink="/chequeos/chequeo"
-            (click)="setChequeoEnCola(chequeo.id)"
+          <a class="card-link green" routerLink="/chequeos/chequeo"
             >Realizar chequeo</a
           >
-          <a
-            *ngIf="!articulosChequeoExiste(chequeo.id)"
-            class="card-link"
-            (click)="
-              cargarArticulosChequeo(
-                chequeo.departamento.id,
-                chequeo.seccion.id,
-                chequeo.familia.id,
-                chequeo.subFamilia.id,
-                chequeo.id
-              )
-            "
-            >Cargar chequeo</a
-          >
+          <a class="card-link">Cargar chequeo</a>
         </div>
       </div>
     </div>
