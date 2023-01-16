@@ -21,6 +21,11 @@ const routes: Routes = [
             (m) => m.ChequeosModule
           ),
       },
+      {
+        path: '**',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+      },
     ],
   },
 ];

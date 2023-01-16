@@ -10,6 +10,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./Shared/layout/layout.module').then((m) => m.LayoutModule),
   },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./Shared/layout/layout.module').then((m) => m.LayoutModule),
+  },
 ];
 
 @NgModule({
