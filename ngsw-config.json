@@ -36,7 +36,8 @@
       "name": "data-api",
       "urls": [
         "http://192.168.10.121:7373",
-        "https://api.giphy.com/v1/gifs/trending?api_key=dKCDb0n6mIbZUAODrZ897y9MK47HWiT3&limit=5"
+        "https://api.giphy.com/v1/gifs/trending?api_key=dKCDb0n6mIbZUAODrZ897y9MK47HWiT3&limit=5",
+        "http://localhost:8080/rest/getAllChequeos.php"
       ],
       "cacheConfig": {
         "strategy": "freshness",

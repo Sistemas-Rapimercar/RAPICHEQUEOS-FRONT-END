@@ -12,7 +12,11 @@ export class ChequeoService {
   constructor(private httpClient: HttpClient) {}
   private url: string = environment.urlRestApi;
 
-  private url2: string =
+  public getChequeosPendientes(): Observable<any> {
+    return this.httpClient.get<any>(this.url + '/rest/getAllChequeos.php')
+  }
+
+  /* private url2: string =
     'https://api.giphy.com/v1/gifs/trending?api_key=dKCDb0n6mIbZUAODrZ897y9MK47HWiT3&limit=5';
 
   private chequeos: Chequeo[] = [];
@@ -33,5 +37,5 @@ export class ChequeoService {
 
   public getGift(): Observable<any> {
     return this.httpClient.get<any>(this.url2);
-  }
+  } */
 }

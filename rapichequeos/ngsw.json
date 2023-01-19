@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1673902470001,
+  "timestamp": 1674076730227,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,14 +13,14 @@
       "urls": [
         "/12.69dc887b3cbe597d.js",
         "/238.4b5f8117e5e8696e.js",
-        "/244.7ae3d17d91f852fe.js",
-        "/common.1f45be2355f8e665.js",
+        "/244.ca933f4fc4f76ecc.js",
+        "/common.9069fa44e05df3f8.js",
         "/favicon.ico",
         "/index.html",
-        "/main.6997c8f964ba18e3.js",
+        "/main.ac02e6ef2eec0841.js",
         "/manifest.webmanifest",
         "/polyfills.567fb5026d194c5b.js",
-        "/runtime.cca38a9a95459a59.js",
+        "/runtime.722eca9517b1fd44.js",
         "/styles.ef46db3751d8e999.css"
       ],
       "patterns": [
@@ -53,7 +53,8 @@
       "name": "data-api",
       "patterns": [
         "http:\\/\\/192\\.168\\.10\\.121:7373",
-        "https:\\/\\/api\\.giphy\\.com\\/v1\\/gifs\\/trending\\?api_key=dKCDb0n6mIbZUAODrZ897y9MK47HWiT3&limit=5"
+        "https:\\/\\/api\\.giphy\\.com\\/v1\\/gifs\\/trending\\?api_key=dKCDb0n6mIbZUAODrZ897y9MK47HWiT3&limit=5",
+        "http:\\/\\/localhost:8080\\/rest\\/getAllChequeos\\.php"
       ],
       "strategy": "freshness",
       "maxSize": 10000,
@@ -68,7 +69,7 @@
   "hashTable": {
     "/12.69dc887b3cbe597d.js": "7042e0179a744eb66ff5a26d1d458ab73be5c41d",
     "/238.4b5f8117e5e8696e.js": "85a97b1d986900fcb84cfa18a375678b893fabc6",
-    "/244.7ae3d17d91f852fe.js": "d171aa11ead174900fd3d035bdc715d82a3211f8",
+    "/244.ca933f4fc4f76ecc.js": "2073b9c54bf687f964904f2e2c28a7a4e3d877d2",
     "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -77,13 +78,13 @@
     "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
     "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
-    "/common.1f45be2355f8e665.js": "9818205658e49ba6c9c089a2880a55635aea647c",
+    "/common.9069fa44e05df3f8.js": "9e80d3806efff0c0f84a02900622cddc3f526a22",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "da1733249968cd16dda3ba4110920c713732c036",
-    "/main.6997c8f964ba18e3.js": "2959859f6259d1f25d8f77ced53092ff85b0680d",
-    "/manifest.webmanifest": "183d28d5d6a4715a8ec0e0fd8ee401db6c510caf",
+    "/index.html": "0fb99073c36f5780ca5028a4a9df3bfd9d64a9cc",
+    "/main.ac02e6ef2eec0841.js": "254c296d2a7ebbc6f1866d267133033c9d25075d",
+    "/manifest.webmanifest": "299ea4fa0341b986a8102a1514bc17a753ed569e",
     "/polyfills.567fb5026d194c5b.js": "f8e8c285962fe3ded824a8282c6732aefc0fba50",
-    "/runtime.cca38a9a95459a59.js": "c1b899a8f073ff05e515212d212ee379df81cde5",
+    "/runtime.722eca9517b1fd44.js": "fbfff74538041e616c594c3ebc75ba687fa20805",
     "/styles.ef46db3751d8e999.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
   },
   "navigationUrls": [

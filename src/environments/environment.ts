@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlRestApi: 'http://192.168.10.12:7373',
+  urlRestApi: 'http://localhost:80',
 };
 
 /*
