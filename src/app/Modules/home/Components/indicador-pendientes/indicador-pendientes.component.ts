@@ -9,9 +9,9 @@ import { ChequeoService } from 'src/app/Modules/chequeos/Services/chequeo.servic
 })
 export class IndicadorPendientesComponent {
   constructor(private chequeoServicio: ChequeoService) {
-    this.chequeoServicio.getChequeosPendientes().subscribe((data) => {
+    /* this.chequeoServicio.getChequeosPendientes().subscribe((data) => {
       this.chequeos = data;
-    });
+    }); */
   }
   /* get chequeos(): Chequeo[] {
     //console.log(this.chequeoServicio.getChequeos());

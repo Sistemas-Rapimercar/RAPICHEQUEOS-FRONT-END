@@ -9,29 +9,40 @@ import { Articulo } from 'src/app/core/Models/Articulo';
   providedIn: 'root',
 })
 export class ChequeoService {
-  constructor(private httpClient: HttpClient) {}
-  private url: string = environment.urlRestApi;
-
-  private url2: string =
-    'https://api.giphy.com/v1/gifs/trending?api_key=dKCDb0n6mIbZUAODrZ897y9MK47HWiT3&limit=5';
-
-  private chequeos: Chequeo[] = [];
-
-  public getChequeosPendientes(): Observable<any> {
-    return this.httpClient.get<any>(this.url + '/chequeos').pipe(
-      map((response) => {
-        return response.data;
-        //this.chequeos = response.data;
-      })
-    );
+  constructor(private httpClient: HttpClient) {
+    this.createIndexedDB('CHEQUEOS', 1);
   }
 
-  public getChequeos(): Chequeo[] {
-    this.getChequeosPendientes().subscribe();
-    return this.chequeos;
+  db: IDBDatabase;
+
+  createIndexedDB(dbName: string, version: number) {
+    try {
+      let request = indexedDB.open(dbName, version);
+      let db = request.result;
+      this.db = request.result;
+      let objectStore = db.createObjectStore('myObjectStore', {
+        keyPath: 'id',
+        autoIncrement: true,
+      });
+      objectStore.createIndex('name', 'name', { unique: false });
+      objectStore.createIndex('email', 'email', { unique: true });
+      console.log('IndexedDB created successfully');
+    } catch (error) {
+      console.log('Error creating IndexedDB: ' + error);
+    }
   }
 
-  public getGift(): Observable<any> {
-    return this.httpClient.get<any>(this.url2);
+  public addChequeo(chequeo: Chequeo) {
+    let transaction = this.db.transaction(['chequeos'], 'readwrite');
+    let objectStore = transaction.objectStore('chequeos');
+    let request = objectStore.add(chequeo);
+
+    request.onsuccess = (event: Event) => {
+      console.log('Chequeo added successfully: ' + event.target);
+    };
+
+    request.onerror = (event: Event) => {
+      console.log('Error adding chequeo: ' + event.target);
+    };
   }
 }

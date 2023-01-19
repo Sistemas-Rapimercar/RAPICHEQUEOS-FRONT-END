@@ -8,10 +8,10 @@ import { ChequeoService } from '../../chequeos/Services/chequeo.service';
 })
 export class DashboardComponent {
   constructor(private chequeoServicio: ChequeoService) {
-    this.chequeoServicio.getGift().subscribe((data) => {
+    /* this.chequeoServicio.getGift().subscribe((data) => {
       console.log(data);
       this.images = data.data;
-    });
+    }); */
   }
   images: any[];
 }
